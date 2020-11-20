@@ -7,6 +7,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie' 
 Plug 'vim-syntastic/syntastic'
+Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-sandwich'
 
 call plug#end()
 
@@ -46,3 +48,4 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 imap ,, <Esc>
 tmap ,, <Esc>
+
