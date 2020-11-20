@@ -40,6 +40,9 @@ let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1 
+let g:syntastic_loc_list_height=5
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++17 -stdlib=libc++'
 
 syntax on
 filetype on
@@ -68,5 +71,7 @@ nnoremap E $
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
-imap ,, <Esc>
-tmap ,, <Esc>
+imap jk <Esc>
+tmap jk <Esc>
+imap kj <Esc>
+tmap kj <Esc>
