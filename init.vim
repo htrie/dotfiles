@@ -1,3 +1,7 @@
+" :%y+ copy all lines to clipboard
+" f<char> and ; ,
+"
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -42,6 +46,7 @@ colorscheme gruvbox
 
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>f :Files<CR>
+nmap <leader>w :w<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
