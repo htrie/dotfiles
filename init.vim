@@ -33,6 +33,7 @@ set colorcolumn=100
 set hidden
 set nobackup
 set nowritebackup
+set cursorline
 
 let mapleader=","
 let g:gruvbox_contrast_dark = 'hard'
@@ -73,5 +74,7 @@ nnoremap ^ <nop>
 
 imap jk <Esc>
 tmap jk <Esc>
+vmap jk <Esc>
 imap kj <Esc>
 tmap kj <Esc>
+vmap kj <Esc>
