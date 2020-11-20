@@ -56,17 +56,16 @@ nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
 nmap <leader>w :close<CR>
 nmap <leader>q :wq<CR>
-nmap <leader>h <C-w>h<CR>
-nmap <leader>l <C-w>l<CR>
-nmap <leader>j <C-w>j<CR>
-nmap <leader>k <C-w>k<CR>
+nmap <leader>h <C-w>h
+nmap <leader>l <C-w>l
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-nnoremap <CR> :noh<CR>
 nnoremap B ^
 nnoremap E $
 nnoremap $ <nop>
