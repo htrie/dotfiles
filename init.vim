@@ -49,8 +49,13 @@ let g:syntastic_check_on_open = 1
 colorscheme gruvbox
 
 nnoremap <CR> :noh<CR>
+nnoremap B ^
+nnoremap E $
+nnoremap $ <nop>
+nnoremap ^ <nop>
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
+nmap <leader>t :tabnew<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
 nmap <leader>w :close<CR>
@@ -59,6 +64,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 imap ,, <Esc>
 tmap ,, <Esc>
 
