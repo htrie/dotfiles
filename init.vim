@@ -1,5 +1,9 @@
-" :%y+ copy all lines to clipboard
+"
+" :%y+ to copy all lines to clipboard
 " f<char> and ; ,
+" use :tabnew and gt gT to create and navigate between tabs
+" use .. instead of Esc
+" use ,w and ,r to save file and source init.vim
 "
 
 call plug#begin('~/.vim/plugged')
@@ -44,9 +48,13 @@ let g:syntastic_check_on_open = 1
 
 colorscheme gruvbox
 
+nnoremap <CR> :noh<CR>
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
+nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
 nmap <leader>f :Files<CR>
-nmap <leader>w :w<CR>
+nmap <leader>s :w<CR>
+nmap <leader>w :close<CR>
+nmap <leader>q :wq<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
