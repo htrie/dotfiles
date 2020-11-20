@@ -20,9 +20,6 @@ Plug 'machakann/vim-sandwich'
 
 call plug#end()
 
-syntax on
-filetype on
-
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set incsearch ignorecase smartcase hlsearch
 set ruler laststatus=2 showcmd showmode
@@ -36,8 +33,6 @@ set colorcolumn=100
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=1
-set shortmess+=c
 
 let mapleader=","
 let g:gruvbox_contrast_dark = 'hard'
@@ -46,13 +41,10 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'borde
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1 
 
+syntax on
+filetype on
 colorscheme gruvbox
 
-nnoremap <CR> :noh<CR>
-nnoremap B ^
-nnoremap E $
-nnoremap $ <nop>
-nnoremap ^ <nop>
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
 nmap <leader>t :tabnew<CR>
@@ -60,11 +52,21 @@ nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
 nmap <leader>w :close<CR>
 nmap <leader>q :wq<CR>
+nmap <leader>h <C-w>h<CR>
+nmap <leader>l <C-w>l<CR>
+nmap <leader>j <C-w>j<CR>
+nmap <leader>k <C-w>k<CR>
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <CR> :noh<CR>
+nnoremap B ^
+nnoremap E $
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
 imap ,, <Esc>
 tmap ,, <Esc>
-
