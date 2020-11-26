@@ -41,6 +41,7 @@ colorscheme gruvbox
 
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
+nmap <leader>c :tabnew ~/.config/nvim/coc-settings.json<CR>
 nmap <leader>t :tabnew<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
