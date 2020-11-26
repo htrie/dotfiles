@@ -1,14 +1,14 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie' 
-Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
+Plug 'bfrg/vim-cpp-modern'
 
 call plug#end()
 
@@ -20,7 +20,6 @@ set encoding=utf-8
 set number
 set relativenumber
 set title
-set updatetime=50
 set colorcolumn=100
 set hidden
 set nobackup
@@ -31,11 +30,8 @@ let mapleader=","
 let g:gruvbox_contrast_dark = 'hard'
 let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1 
-let g:syntastic_loc_list_height=5
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++17 -stdlib=libc++'
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
 
 syntax on
 filetype on
