@@ -1,11 +1,3 @@
-"
-" :%y+ to copy all lines to clipboard
-" f<char> and ; ,
-" use :tabnew and gt gT to create and navigate between tabs
-" use .. instead of Esc
-" use ,w and ,r to save file and source init.vim
-"
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
