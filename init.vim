@@ -30,6 +30,7 @@ let mapleader=","
 let g:gruvbox_contrast_dark = 'hard'
 let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
+let g:coc_diagnostic_disable = 1
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
