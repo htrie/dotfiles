@@ -20,6 +20,7 @@ set encoding=utf-8
 set number
 set relativenumber
 set title
+set updatetime=300
 set colorcolumn=100
 set hidden
 set nobackup
@@ -45,6 +46,7 @@ nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
 nmap <leader>w :close<CR>
 nmap <leader>q :wq<CR>
+nmap <leader>n :noh<CR>
 nmap <leader>h <C-w>h
 nmap <leader>l <C-w>l
 nmap <leader>j <C-w>j
