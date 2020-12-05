@@ -31,6 +31,8 @@ colorscheme gruvbox
 
 let mapleader=","
 let g:gruvbox_contrast_dark = 'hard'
+let g:fzf_preview_window = []
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
