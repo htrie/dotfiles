@@ -1,6 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'bfrg/vim-cpp-modern'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
@@ -31,6 +33,9 @@ colorscheme gruvbox
 
 let mapleader=","
 let g:gruvbox_contrast_dark = 'hard'
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+let g:coc_diagnostic_disable = 1
 let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 
@@ -38,9 +43,19 @@ nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
 nmap <leader>c :tabnew ~/.config/nvim/coc-settings.json<CR>
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 nmap <leader>t :tabnew<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
 nmap <leader>w :close<CR>
-nmap <leader>q :wq<CR>
+nmap <leader>q :q!<CR>
 nmap <leader>n :noh<CR>
+
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l
