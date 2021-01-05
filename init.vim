@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'easymotion/vim-easymotion'
 Plug 'bfrg/vim-cpp-modern'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
@@ -39,15 +39,10 @@ let g:coc_diagnostic_disable = 1
 let g:fzf_preview_window = []
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 
+map <leader>a <Plug>(easymotion-bd-f)
+
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
-nmap <leader>c :tabnew ~/.config/nvim/coc-settings.json<CR>
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
 nmap <leader>t :tabnew<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>s :w<CR>
