@@ -50,6 +50,8 @@ nmap <leader>w :close<CR>
 nmap <leader>q :q!<CR>
 nmap <leader>n :noh<CR>
 
+nnoremap ; :
+
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
