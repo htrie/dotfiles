@@ -1,11 +1,14 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'easymotion/vim-easymotion'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie' 
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
-Plug 'phaazon/hop.nvim'
 
 call plug#end()
 
@@ -23,17 +26,21 @@ set hidden
 set nobackup
 set nowritebackup
 set cursorline
-set termguicolors
 
 syntax on
 filetype on
 colorscheme gruvbox
 
 let mapleader=","
+let g:gruvbox_contrast_dark = 'hard'
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+let g:coc_diagnostic_disable = 1
+let g:fzf_preview_window = []
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 
-nmap <leader>j :HopWord<CR>
-nmap <leader>k :HopChar1<CR>
-nmap <leader>l :HopLine<CR>
+map <leader>j <Plug>(easymotion-bd-f)
+
 nmap <leader>r :source ~/.config/nvim/init.vim<CR>
 nmap <leader>v :tabnew ~/.config/nvim/init.vim<CR>
 nmap <leader>t :tabnew<CR>
@@ -42,6 +49,8 @@ nmap <leader>s :w<CR>
 nmap <leader>w :close<CR>
 nmap <leader>q :q!<CR>
 nmap <leader>n :noh<CR>
+
+nnoremap ; :
 
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
