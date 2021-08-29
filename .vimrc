@@ -23,4 +23,10 @@ nmap <leader>c :vsc Build.Compile<CR>
 nmap <leader>b :vsc Build.BuildSolution<CR>
 nmap <leader>n :noh<CR>
 
-nnoremap jj <Esc>
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
