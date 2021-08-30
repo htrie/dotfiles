@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie' 
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
