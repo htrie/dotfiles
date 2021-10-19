@@ -7,8 +7,8 @@ set cursorline
 let mapleader=","
 
 nmap <leader>q :vsc Debug.StopDebugging<CR>
-nmap <leader>r :vsc Edit.ReplaceinFiles<CR>
-nmap <leader>t :vsc View.NavigateForward<CR>
+nmap <leader>t :vsc Window.NewVerticalTabGroup<CR>
+nmap <leader>r :vsc View.NavigateForward<CR>
 
 nmap <leader>a :vsc Debug.Start<CR>
 nmap <leader>s :w<CR>
