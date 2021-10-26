@@ -1,10 +1,10 @@
--- Install packer
+--Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
+--Compile Packer on save
 vim.api.nvim_exec(
   [[
   augroup Packer
@@ -15,15 +15,22 @@ vim.api.nvim_exec(
   false
 )
 
+--Plugins
 local use = require('packer').use
 require('packer').startup(function()
-  use 'wbthomason/packer.nvim' -- Package manager
-  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- UI to select things (files, grep results, open buffers...)
-  use 'morhetz/gruvbox' -- Theme inspired by Atom
-  use 'itchyny/lightline.vim' -- Fancier statusline
-  use 'nvim-treesitter/nvim-treesitter' -- Highlight, edit, and navigate code using a fast incremental parsing library
+  use 'psliwka/vim-smoothie'
+  use 'wbthomason/packer.nvim'
+  use 'ludovicchabant/vim-gutentags'
+  use 'morhetz/gruvbox'
+  use 'itchyny/lightline.vim'
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'tree-sitter/tree-sitter-cpp'
+  use 'neovim/nvim-lspconfig'
 end)
+
+--Split
+vim.g.splitleft = true
+vim.g.splitbottom = true
 
 --Swap
 vim.o.swapfile = false
@@ -42,7 +49,6 @@ vim.o.hlsearch = true
 --Make line numbers default
 vim.wo.relativenumber = true
 vim.wo.number = true
---vim.wo.colorcolumn = "100"
 
 --Do not save when switching buffers (note: this is now a default on master)
 vim.o.hidden = true
@@ -77,8 +83,9 @@ vim.g.lightline = {
 }
 
 --Remap leader key
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 --Remap for dealing with word wrap
 vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
@@ -98,18 +105,6 @@ vim.api.nvim_exec(
 -- Y yank until the end of line  (note: this is now a default on master)
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
--- Telescope
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
-
 --Remap esc
 vim.api.nvim_set_keymap("i", "jj", "<esc>", {noremap = true})
 
@@ -119,21 +114,6 @@ vim.api.nvim_set_keymap("n", "gk", "k", {noremap = true})
 vim.api.nvim_set_keymap("n", "j", "gj", {noremap = true})
 vim.api.nvim_set_keymap("n", "gj", "j", {noremap = true})
 
---Save
-vim.api.nvim_set_keymap("i", "<leader>s", "<esc>:w<CR>i", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>s", ":w<CR>", {noremap = true})
-
---Close
-vim.api.nvim_set_keymap("n", "<leader>q", ":q<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>w", ":close<CR>", {noremap = true})
-
---Hightlighting
-vim.api.nvim_set_keymap("n", "<leader>n", ":noh<CR>", {noremap = true})
-
---Config
-vim.api.nvim_set_keymap("n", "<leader>ev", ":tabedit $MYVIMRC<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>sv", ":luafile $MYVIMRC<CR>", {noremap = true})
-
 --Center screen 
 vim.api.nvim_set_keymap("n", "n", "nzz", {noremap = true})
 vim.api.nvim_set_keymap("n", "N", "Nzz", {noremap = true})
@@ -142,16 +122,37 @@ vim.api.nvim_set_keymap("n", "#", "#zz", {noremap = true})
 vim.api.nvim_set_keymap("n", "g*", "g*zz", {noremap = true})
 vim.api.nvim_set_keymap("n", "g#", "g#zz", {noremap = true})
 
---Add leader shortcuts
-vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>sh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>st', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>sd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sp', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>so', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
+--Save
+vim.api.nvim_set_keymap("n", "<leader>s", ":w<CR>", {noremap = true})
+
+--Close
+vim.api.nvim_set_keymap("n", "<leader>q", ":q!<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>w", ":close<CR>", {noremap = true})
+
+--Todo
+vim.api.nvim_set_keymap("n", "<leader>to", ":14sp /mnt/c/Users/simd/OneDrive/Documents/todo.diff<CR>", {noremap = true})
+
+--Terminal
+vim.api.nvim_set_keymap("n", "<leader>tr", ":60vs|terminal<CR>", {noremap = true})
+vim.api.nvim_set_keymap("t", "jj", "<C-\\><C-n>", {noremap = true})
+
+--Windows
+vim.api.nvim_set_keymap("n", "<leader>h", "<C-W><C-h>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>j", "<C-W><C-j>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>k", "<C-W><C-k>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>l", "<C-W><C-l>", {noremap = true})
+vim.api.nvim_set_keymap("t", "<leader>h", "<C-W><C-h>", {noremap = true})
+vim.api.nvim_set_keymap("t", "<leader>j", "<C-W><C-j>", {noremap = true})
+vim.api.nvim_set_keymap("t", "<leader>k", "<C-W><C-k>", {noremap = true})
+vim.api.nvim_set_keymap("t", "<leader>l", "<C-W><C-l>", {noremap = true})
+
+--Hightlighting
+vim.api.nvim_set_keymap("n", "<leader>n", ":noh<CR>", {noremap = true})
+
+--Config
+vim.api.nvim_set_keymap("n", "<leader>ev", ":vs $MYVIMRC<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>sv", ":luafile $MYVIMRC<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>cv", ":! cp ~/.config/nvim/init.lua /mnt/c/Users/simd/OneDrive/Documents/init.lua<CR><CR>", {noremap = true})
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
